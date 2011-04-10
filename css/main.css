@@ -1,11 +1,14 @@
 
 body { margin:0; padding:0; font-family:tahoma,"trebuchet ms",sans-serif; }
 
-label { width:80px; display:block; font-size:12pt; margin:4px 0 0 0; }
+label { width:100px; display:block; font-size:12pt; margin:4px 0 0 0; }
 
-#container { margin:40px auto 0 auto; width:300px; text-align:left; }
+label.error { display:block; color:#c00; font-style:italic; font-size:8pt; margin:0; padding:0; }
+
+#container { margin:40px auto 0 auto; width:600px; text-align:left; }
 
 #file { margin:0 0 20px 0; }
 
+#print_button { float:right;}
 
 #signup_form { margin:60px 0 0 0; }
