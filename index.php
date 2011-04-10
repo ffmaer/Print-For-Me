@@ -5,20 +5,18 @@
 	<title>printpuppy</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
 	<script type="text/javascript" src="resources/jquery/jquery-1.5.2.min.js"></script>
+	<script type="text/javascript" src="resources/jquery/jquery.validate.js"></script>
+	<script type="text/javascript" src="resources/jquery/jquery.form.js"></script>
 	
 	<script type="text/javascript">
 	
 	$(document).ready(function() {
 		
-		var validator_<?=$form_id?> = $('#<?=$form_id?>').validate({
+		var validator = $('#print_form').validate({
 
 			// submit action
 			submitHandler: function(form) {
-				$('#print_form').ajaxSubmit({
-					dataType: 'json',
-					beforeSubmit: ajaxBeforeSubmit,
-					success: ajaxResponseHandler // callback function (after AJAX request is complete)
-				});
+				$(form).ajaxSubmit();
 				return false;
 			},
 
