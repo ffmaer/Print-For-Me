@@ -31,32 +31,22 @@ session_start();
 
 			// rules
 			rules: {
-				price: {
-					required: true
+				email: {
+					required: true,
+					email: true
 				},
-				place: {
-					required: true
-				},
-				time: {
-					required: true
-				},
-				file: {
+				password: {
 					required: true
 				}
 			},
 			
 			// error messages
 			messages: {
-				price: {
-					required: 'Price is required!'
+				email: {
+					required: 'Time is required!',
+					email: 'Invalid email address!'
 				},
-				place: {
-					required: 'Place is required!'
-				},
-				time: {
-					required: 'Time is required!'
-				},
-				file: {
+				password: {
 					required: 'File is required!'
 				}
 			}
@@ -78,29 +68,24 @@ session_start();
 <body>
 	<div id="container">
 		
-		<form name="print_form" id="print_form" method="post" action="putRequest.php" enctype="multipart/form-data">
+		<h1>Sign In</h1>
+		
+		<form name="login_form" id="login_form" method="post" action="loginRequest.php">
 
-			<input type="image" id="print_button" src="images/print_up.png" onmousedown="printButtonDown();" onmouseup="printButtonUp();" />
+			<label>email address:</label>
+			<input type="text" name="email" id="email" />
+			<br />
+
+			<label>password:</label>
+			<input type="text" name="password" id="password" />
+			<br />
 			
-			<label>price to pay:</label>
-			<input type="text" name="price" id="price" />
-			<br />
-
-			<label>place to meet:</label>
-			<input type="text" name="place" id="place" />
-			<br />
-
-			<label>time to meet:</label>
-			<input type="text" name="time" id="time" />
-			<br />
-
-			<label>file to print:</label>
-			<input type="file" name="file" id="file" />
+			<input type="submit" value="submit" />
 		</form>
 		
 		<hr />
 		
-		<a href="signup.php">Sign up</a> | <a href="signin.php">Sign in</a>
+		<a href="/">Print</a>
 	</div>
 </body>
 
