@@ -108,7 +108,7 @@ session_start();
 		
 		<hr />
 		
-		<a href="/">Print</a>
+		<a href="index.php">Print</a>
 	</div>
 </body>
 

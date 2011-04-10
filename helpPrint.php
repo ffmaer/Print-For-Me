@@ -45,7 +45,7 @@ while($tasks->hasNext()){
 	$datetime2 = date_create(date("Y-m-d G:i"));     
 	$i = date_diff($datetime1, $datetime2);
 	$ts[$counter]['hours']=round($i->h+$i->i/60);
-	$ts[$counter]['file']=$t['file_name'];;
+	$ts[$counter]['file']=$t['file_id'];;
 			
 			
 			
@@ -54,7 +54,7 @@ while($tasks->hasNext()){
 	    echo "<td bgcolor='#66CCFF'>".$ts[$counter]['price']."</td>";
 	    echo "<td bgcolor='#FFFF00'>".$ts[$counter]['distance']."</td>";
 	    echo "<td bgcolor='#66CCFF'>".$ts[$counter]['hours']."</td>";
-	    echo "<td bgcolor='#66CCFF'><a href='download.php?filename=".$ts[$counter]['file']."'><img src='download.png' /></a></td>";
+	    echo "<td bgcolor='#66CCFF'><a href='download.php?file_id=".$ts[$counter]['file']."'><img src='download.png' /></a></td>";
 	    echo '<td><input type="submit" value = "take"/></td>';
     echo "</tr>";
     

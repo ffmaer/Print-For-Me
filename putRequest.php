@@ -26,5 +26,3 @@ $collection = $m->prints->buyers;
 $collection->insert($obj);
 
 echo 'Hi! <a href="javascript:history.back();">Print more?</a>';
-			
-

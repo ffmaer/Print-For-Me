@@ -150,16 +150,10 @@ session_start();
 
 		<?php
 		
-		if(isset($_SESSION['email'])){
 			
 			echo 'Hi! <a href="helpPrint.php">Help print?</a>';
 			
-		}
-		else
-		{
-			echo '<a href="signup.php">Sign up</a> | <a href="signin.php">Sign in</a>';
-		}
-		
+
 		?>
 		
 	</div>
