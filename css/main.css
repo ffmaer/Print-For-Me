@@ -7,6 +7,8 @@ label { width:160px; display:block; font-size:12pt; margin:4px 0 0 0; }
 
 label.error { display:block; color:#c00; font-style:italic; font-size:8pt; margin:0; padding:0; }
 
+#response { display:none; padding:40px; font-weight:bold; border:1px solid #999; background:rgba(200,200,200,.8); }
+
 #container { margin:40px auto 0 auto; width:600px; text-align:left; }
 
 #file { margin:0 0 20px 0; }

@@ -14,13 +14,29 @@ session_start();
 	
 	<script type="text/javascript">
 	
+	function ajaxResponseHandler(response, status)
+	{
+		$('#response').html(response.message)
+		$('#response').modal({
+			modal: false,
+			escClose: true
+		});
+		if (response.status_code == 200)
+			setTimeout('window.location = "index.php";', 2000);
+		else
+			setTimeout('$("#response").css("display", "none");', 2000);
+	}
+	
 	$(document).ready(function() {
 		
 		var validator = $('#signin_form').validate({
 
 			// submit action
 			submitHandler: function(form) {
-				$(form).ajaxSubmit();
+				$(form).ajaxSubmit({
+					dataType: 'json',
+					success: ajaxResponseHandler
+				});
 				return false;
 			},
 			
@@ -58,6 +74,8 @@ session_start();
 </head>
 
 <body>
+	<div id="response"></div>
+	
 	<div id="container">
 		
 		<h1>Sign In</h1>

@@ -11,8 +11,22 @@ session_start();
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.js"></script>
 	<script type="text/javascript" src="resources/jquery/jquery.validate.js"></script>
 	<script type="text/javascript" src="resources/jquery/jquery.form.js"></script>
+	<script type="text/javascript" src="resources/jquery/jquery.simplemodal-1.4.1.js"></script>
 	
 	<script type="text/javascript">
+	
+	function ajaxResponseHandler(response, status)
+	{
+		$('#response').html(response.message)
+		$('#response').modal({
+			modal: false,
+			escClose: true
+		});
+		if (response.status_code == 200)
+			setTimeout('window.location = "index.php";', 2000);
+		else
+			setTimeout('$("#response").css("display", "none");', 2000);
+	}
 	
 	$(document).ready(function() {
 		
@@ -20,7 +34,10 @@ session_start();
 
 			// submit action
 			submitHandler: function(form) {
-				$(form).ajaxSubmit();
+				$(form).ajaxSubmit({
+					dataType: 'json',
+					success: ajaxResponseHandler
+				});
 				return false;
 			},
 			
@@ -66,6 +83,8 @@ session_start();
 </head>
 
 <body>
+	<div id="response"></div>
+	
 	<div id="container">
 		
 		<h1>Sign Up</h1>
