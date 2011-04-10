@@ -1,0 +1,2 @@
+<?php
+$m = new Mongo();

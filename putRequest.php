@@ -1,7 +1,7 @@
 <?php
+require_once("config.php");
 
-
-$user_id = $POST['user_id'];
+$user_id = $_POST['user_id'];
 $price = $_POST['price'];
 $venue_id = $_POST['place_id'];
 $unix_time = $_POST['time'];
