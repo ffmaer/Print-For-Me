@@ -1,15 +1,67 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 
 <head>
 	<title>printpuppy</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
-	<script type="text/javascript" src="resources/jquery/jquery-1.5.2.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.js"></script>
+	<script type="text/javascript" src="resources/jquery/jquery.validate.js"></script>
+	<script type="text/javascript" src="resources/jquery/jquery.form.js"></script>
 	
 	<script type="text/javascript">
 	
 	$(document).ready(function() {
 		
+		var validator = $('#print_form').validate({
+
+			// submit action
+			submitHandler: function(form) {
+				$(form).ajaxSubmit();
+				return false;
+			},
+			
+			// error messages
+			errorPlacement: function(error, element) {
+				error.appendTo(element.prev());
+			},
+
+			// rules
+			rules: {
+				price: {
+					required: true
+				},
+				place: {
+					required: true
+				},
+				time: {
+					required: true
+				},
+				file: {
+					required: true
+				}
+			},
+			
+			// error messages
+			messages: {
+				price: {
+					required: 'Price is required!'
+				},
+				place: {
+					required: 'Place is required!'
+				},
+				time: {
+					required: 'Time is required!'
+				},
+				file: {
+					required: 'File is required!'
+				}
+			}
+		});
+			
 	});
 	
 	function printButtonDown() {
@@ -28,42 +80,27 @@
 		
 		<form name="print_form" id="print_form" method="post" action="putRequest.php" enctype="multipart/form-data">
 
-			<label>price:</label>
-			<input type="text" name="price"/>
+			<input type="image" id="print_button" src="images/print_up.png" onmousedown="printButtonDown();" onmouseup="printButtonUp();" />
+			
+			<label>price to pay:</label>
+			<input type="text" name="price" id="price" />
 			<br />
 
-			<label>place:</label>
-			<input type="text" name="place"/>
+			<label>place to meet:</label>
+			<input type="text" name="place" id="place" />
 			<br />
 
-			<label>time:</label>
-			<input type="text" name="time"/>
+			<label>time to meet:</label>
+			<input type="text" name="time" id="time" />
 			<br />
 
-			<label>file:</label>
+			<label>file to print:</label>
 			<input type="file" name="file" id="file" />
-			<br />
-
-			<input type="image" id="print_button" src="images/print_up.png" onmousedown="printButtonDown();" onmouseup="printButtonUp();" onmouseout="printButtonUp();" />
 		</form>
 		
-		<form id="signup_form" action="signUp.php" method="post" enctype="multipart/form-data">
-
-			<label>username:</label>
-			<input type="text" name="username"/>
-			<br />
-
-			<label>password1:</label>
-			<input type="text" name="password1"/>
-			<br />
-
-			<label>password2:</label>
-			<input type="text" name="password2"/>
-			<br />
-
-			<input type="submit" value = "sign up"/>
-		</form>
+		<hr />
 		
+		<a href="signup.php">Sign up</a> | <a href="signin.php">Sign in</a>
 	</div>
 </body>
 
