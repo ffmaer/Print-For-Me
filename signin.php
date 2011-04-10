@@ -16,7 +16,7 @@ session_start();
 	
 	$(document).ready(function() {
 		
-		var validator = $('#print_form').validate({
+		var validator = $('#signin_form').validate({
 
 			// submit action
 			submitHandler: function(form) {
@@ -43,24 +43,16 @@ session_start();
 			// error messages
 			messages: {
 				email: {
-					required: 'Time is required!',
+					required: 'Email is required!',
 					email: 'Invalid email address!'
 				},
 				password: {
-					required: 'File is required!'
+					required: 'Password is required!'
 				}
 			}
 		});
 			
 	});
-	
-	function printButtonDown() {
-		$('#print_button').attr('src', 'images/print_down.png');
-	}
-	
-	function printButtonUp() {
-		$('#print_button').attr('src', 'images/print_up.png');
-	}
 	
 	</script>
 </head>
@@ -70,7 +62,7 @@ session_start();
 		
 		<h1>Sign In</h1>
 		
-		<form name="login_form" id="login_form" method="post" action="loginRequest.php">
+		<form name="signin_form" id="signin_form" method="post" action="signinRequest.php">
 
 			<label>email address:</label>
 			<input type="text" name="email" id="email" />
