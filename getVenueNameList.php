@@ -7,6 +7,8 @@ $list=array();
 while($venues->hasNext())
 {
 	$v = $venues->getNext();		
-	array_push($list,$v);
+	array_push($list,array('venue_name'=>addslashes($v['venue_name']),'venue_id'=>$v['venue_id']));
+	
 }
-echo json_encode($list, JSON_FORCE_OBJECT);
+echo "var list=".json_encode($list).";";
+
