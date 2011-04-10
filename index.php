@@ -10,6 +10,56 @@
 	
 	$(document).ready(function() {
 		
+		var validator_<?=$form_id?> = $('#<?=$form_id?>').validate({
+
+			// submit action
+			submitHandler: function(form) {
+				$('#print_form').ajaxSubmit({
+					dataType: 'json',
+					beforeSubmit: ajaxBeforeSubmit,
+					success: ajaxResponseHandler // callback function (after AJAX request is complete)
+				});
+				return false;
+			},
+
+			// error messages
+			errorPlacement: function(error, element) {
+				error.appendTo(element.prev());
+			},
+
+			// rules
+			rules: {
+				price: {
+					required: true
+				},
+				place: {
+					required: true
+				},
+				time: {
+					required: true
+				},
+				file: {
+					required: true
+				}
+			},
+			
+			// error messages
+			messages: {
+				price: {
+					required: 'Price is required!'
+				},
+				place: {
+					required: 'Place is required!'
+				},
+				place: {
+					required: 'Place is required!',
+				},
+				file: {
+					required: 'File is required!',
+				}
+			}
+		}
+			
 	});
 	
 	function printButtonDown() {
@@ -29,15 +79,15 @@
 		<form name="print_form" id="print_form" method="post" action="putRequest.php" enctype="multipart/form-data">
 
 			<label>price:</label>
-			<input type="text" name="price"/>
+			<input type="text" name="price" id="price" />
 			<br />
 
 			<label>place:</label>
-			<input type="text" name="place"/>
+			<input type="text" name="place" id="place" />
 			<br />
 
 			<label>time:</label>
-			<input type="text" name="time"/>
+			<input type="text" name="time" id="time" />
 			<br />
 
 			<label>file:</label>
