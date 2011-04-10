@@ -20,82 +20,19 @@
 		counter =0;
 		$('#dropdown').html(" ");
 		if($('#place').attr('value').length>=1){
-		for(i=0;i<list.length;i=i+1){
-			if(counter <5){
-			pattern = new RegExp($('#place').attr('value'), 'i');
-			matches = list[i]['venue_name'].match(pattern);
-			if(matches != null){
-				options = options + '<input type=button value="'+list[i]['venue_name']+'"/><br/>';
-				counter++;
+			for(i=0;i<list.length;i=i+1){
+				if(counter <5){
+					pattern = new RegExp($('#place').attr('value'), 'i');
+					matches = list[i]['venue_name'].match(pattern);
+					if(matches != null){
+						options = options + '<input type=button value="'+list[i]['venue_name']+'"/><br/>';
+						counter++;
+					}
+				}				
 			}
-			}				
-		}
 		}
 		$('#dropdown').html(options);
 	}
-	
-	$(document).ready(function() {
-		
-		
-		//readin the json
-		
-		//every time the input box changes
-		
-	
-	
-		//match venue names
-		
-		//show it
-		
-	/*	
-		
-		var validator = $('#print_form').validate({
-
-			// submit action
-			submitHandler: function(form) {
-				$(form).ajaxSubmit();
-				return false;
-			},
-			
-			// error messages
-			errorPlacement: function(error, element) {
-				error.appendTo(element.prev());
-			},
-
-			// rules
-			rules: {
-				price: {
-					required: true
-				},
-				place: {
-					required: true
-				},
-				time: {
-					required: true
-				},
-				file: {
-					required: true
-				}
-			},
-			
-			// error messages
-			messages: {
-				price: {
-					required: 'Price is required!'
-				},
-				place: {
-					required: 'Place is required!'
-				},
-				time: {
-					required: 'Time is required!'
-				},
-				file: {
-					required: 'File is required!'
-				}
-			}
-		});*/
-			
-	});
 	
 	
 	</script>
@@ -106,7 +43,6 @@
 <body>
 
 
-hello
 <input type="text" id="place" name="place" onkeyup="checkList();" />
 <div id="dropdown"></div>
 
