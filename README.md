@@ -6,10 +6,6 @@ You can upload documents you want to print to a website. Others can print them a
 
 Tech stack: PHP, MongoDB
 
-![](https://github.com/ffmaer/Print-For-Me/raw/2020/demo/1.jpg)
-
-Photo by @matylda CC-BA-SA 2.0
-
 ![](https://github.com/ffmaer/Print-For-Me/raw/2020/demo/3.jpg)
 
 Photo by @matylda CC-BA-SA 2.0
